@@ -1,0 +1,171 @@
+wojtona@L0403 MINGW64 /d/Coders Day (master)
+$ git fetch --all
+Fetching origin
+
+wojtona@L0403 MINGW64 /d/Coders Day (master)
+$ git reset --hard origin/master
+HEAD is now at b5aab3c Create Order working
+
+wojtona@L0403 MINGW64 /d/Coders Day (master)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        LunchBox.7z
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+wojtona@L0403 MINGW64 /d/Coders Day (master)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+
+wojtona@L0403 MINGW64 /d/Coders Day (master)
+$ git checkout -b newBranch1
+Switched to a new branch 'newBranch1'
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch1)
+$ git add .
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch1)
+$ git status
+On branch newBranch1
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   src/main/java/pl/com/tt/config/CacheConfiguration.java
+
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch1)
+$ git commit -m "aaasdasdasd"
+[newBranch1 d148eac] aaasdasdasd
+ 1 file changed, 1 insertion(+)
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch1)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+
+wojtona@L0403 MINGW64 /d/Coders Day (master)
+$ git merge ^C
+
+wojtona@L0403 MINGW64 /d/Coders Day (master)
+$ git merge newBranch1
+Updating b5aab3c..d148eac
+error: Your local changes to the following files would be overwritten by merge:
+        src/main/java/pl/com/tt/config/CacheConfiguration.java
+Please, commit your changes or stash them before you can merge.
+Aborting
+
+wojtona@L0403 MINGW64 /d/Coders Day (master)
+$ git checkout -b newBranch2
+M       src/main/java/pl/com/tt/config/CacheConfiguration.java
+Switched to a new branch 'newBranch2'
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch2)
+$ git status
+On branch newBranch2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   src/main/java/pl/com/tt/config/CacheConfiguration.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch2)
+$ git add .
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch2)
+$ git commit "asdadswe"
+error: pathspec 'asdadswe' did not match any file(s) known to git.
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch2)
+$ git commit -m "asdadswe"
+[newBranch2 44462be] asdadswe
+ 1 file changed, 1 insertion(+)
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch2)
+$ git merge newBranch1
+Auto-merging src/main/java/pl/com/tt/config/CacheConfiguration.java
+CONFLICT (content): Merge conflict in src/main/java/pl/com/tt/config/CacheConfiguration.java
+Automatic merge failed; fix conflicts and then commit the result.
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch2|MERGING)
+$ git status
+On branch newBranch2
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+        both modified:   src/main/java/pl/com/tt/config/CacheConfiguration.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch2|MERGING)
+$ git status
+On branch newBranch2
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+        both modified:   src/main/java/pl/com/tt/config/CacheConfiguration.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch2|MERGING)
+$ git commit -m "from branch 1 "
+U       src/main/java/pl/com/tt/config/CacheConfiguration.java
+error: commit is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch2|MERGING)
+$ git commit -m "from branch 1"
+U       src/main/java/pl/com/tt/config/CacheConfiguration.java
+error: commit is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch2|MERGING)
+$ git add CacheConfiguration
+fatal: pathspec 'CacheConfiguration' did not match any files
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch2|MERGING)
+$ git add src\main\java\pl\com\tt\config\CacheConfiguration.java
+fatal: pathspec 'srcmainjavaplcomttconfigCacheConfiguration.java' did not match any files
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch2|MERGING)
+$ git add src/main/java/pl/com/tt/config/CacheConfiguration.java
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch2|MERGING)
+$ git status
+On branch newBranch2
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+
+        modified:   src/main/java/pl/com/tt/config/CacheConfiguration.java
+
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch2|MERGING)
+$ git commit -m "from branch 1"
+[newBranch2 037032d] from branch 1
+
+wojtona@L0403 MINGW64 /d/Coders Day (newBranch2)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+
+wojtona@L0403 MINGW64 /d/Coders Day (master)
+$
